@@ -19,7 +19,7 @@ function getCountries(searchText) {
                     <div class="well text-center">
                         <img src="${country.flag}">
                         <h5>${country.name}</h5>
-                        <a onclick="movieSelected('${country.callingCodes}')" class="btn btn-primary" href="#">Country Details</a>
+                        <a onclick="countrySelected('${country.callingCodes}')" class="btn btn-primary" href="#">Country Details</a>
                     </div>
                 </div>
                 `
@@ -43,7 +43,7 @@ function getCountryByCapital(searchText) {
                     <div class="well text-center">
                         <img src="${country.flag}">
                         <h5>${country.name}</h5>
-                        <a onclick="movieSelected('${country.callingCodes}')" class="btn btn-primary" href="#">Country Details</a>
+                        <a onclick="countrySelected('${country.callingCodes}')" class="btn btn-primary" href="#">Country Details</a>
                     </div>
                 </div>
                 `
@@ -54,3 +54,9 @@ function getCountryByCapital(searchText) {
             console.log(err)
         })
 };
+
+function countrySelected(callingCode) {
+    sessionStorage.setItem('callingCode', callingCode);
+    window.location = 'country.html';
+    return false;
+}
